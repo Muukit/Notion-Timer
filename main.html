@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task Timer</title>
+    <script>
+        let startTime, endTime;
+        function startTimer() {
+            startTime = new Date();
+            document.getElementById("status").innerText = "Timer running...";
+        }
+        function stopTimer() {
+            endTime = new Date();
+            const duration = (endTime - startTime) / 1000; // in seconds
+            document.getElementById("status").innerText = `Task took ${duration} seconds`;
+            // Optional: Copy to clipboard for pasting into Notion
+            navigator.clipboard.writeText(`Duration: ${duration} seconds`);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="startTimer()">Start Task</button>
+    <button onclick="stopTimer()">End Task</button>
+    <p id="status">Timer ready.</p>
+</body>
+</html>
